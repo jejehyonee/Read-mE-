@@ -1,0 +1,137 @@
+/* ── quiz container ── */
+.quiz {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #0c0c10;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.05),
+              inset 0 -2px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* ── question area ── */
+.question-area {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  right: 440px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.question-text {
+  font-family: monospace;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 64px;
+}
+
+/* ── option rows ── */
+.options {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.option-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 3px solid transparent;
+  background: none;
+  transition: border-color 0.15s ease, padding-left 0.15s ease,
+              transform 0.15s ease, background 0.15s ease;
+}
+
+.opt-num {
+  font-family: monospace;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  width: 40px;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.opt-line     { display: none; }
+.opt-check    { display: none; }
+.opt-dot      { display: none; }
+.opt-analyzing { display: none !important; }
+
+.opt-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 24px;
+  transition: background 0.15s ease;
+}
+
+.opt-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.opt-text {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.15s ease;
+}
+
+.opt-arrow {
+  font-family: monospace;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.15s ease;
+}
+
+/* ── hover ── */
+.option-row:hover {
+  border-left-color: #ffffff;
+  padding-left: 12px;
+  transform: translateX(6px);
+}
+.option-row:hover .opt-num   { color: rgba(255, 255, 255, 0.7); }
+.option-row:hover .opt-text  { color: #ffffff; }
+.option-row:hover .opt-arrow { color: #ffffff; }
+
+/* ── selected ── */
+.option-row.selected {
+  border-left-color: #0066ff;
+  padding-left: 12px;
+  transform: translateX(6px);
+  background: rgba(0, 102, 255, 0.06);
+}
+.option-row.selected .opt-num   { color: #0066ff; }
+.option-row.selected .opt-text  { color: #0066ff; font-weight: 600; }
+.option-row.selected .opt-arrow { color: #0066ff; }
+.option-row.selected .opt-bar   { background: #0066ff; }
+
+/* ── next button ── */
+.next-btn {
+  position: absolute;
+  bottom: -44px;
+  right: 0;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 16px;
+  padding: 0;
+  cursor: pointer;
+  display: none;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.next-btn.visible { display: block; }
+.next-btn:hover   { opacity: 1; }

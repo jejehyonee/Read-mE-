@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>READ ♥</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ range(1000,9999) | random }}">
+  <link rel="stylesheet" href="/static/quiz.css?v={{ range(1000,9999) | random }}">
+</head>
+<body>
+  <!-- nav bar -->
+  <div class="nav-bar">
+    <span class="nav-left">PREF_OS v2.1</span>
+    <span class="nav-center">Personalization Setup</span>
+    <span class="nav-right"><span class="nav-dot"></span>Connected</span>
+  </div>
+  <!-- progress bar -->
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="quiz">
+    <div class="question-area">
+      <p class="question-text">QUERY_01</p>
+      <div class="options">
+        <div class="option-row">
+          <span class="opt-num">01</span>
+          <div class="opt-bar"></div>
+          <span class="opt-right">
+            <span class="opt-text">OPTION_A</span>
+            <span class="opt-arrow">→</span>
+          </span>
+          <span class="opt-analyzing"></span>
+        </div>
+        <div class="option-row">
+          <span class="opt-num">02</span>
+          <div class="opt-bar"></div>
+          <span class="opt-right">
+            <span class="opt-text">OPTION_B</span>
+            <span class="opt-arrow">→</span>
+          </span>
+          <span class="opt-analyzing"></span>
+        </div>
+        <div class="option-row">
+          <span class="opt-num">03</span>
+          <div class="opt-bar"></div>
+          <span class="opt-right">
+            <span class="opt-text">OPTION_C</span>
+            <span class="opt-arrow">→</span>
+          </span>
+          <span class="opt-analyzing"></span>
+        </div>
+        <div class="option-row">
+          <span class="opt-num">04</span>
+          <div class="opt-bar"></div>
+          <span class="opt-right">
+            <span class="opt-text">OPTION_D</span>
+            <span class="opt-arrow">→</span>
+          </span>
+          <span class="opt-analyzing"></span>
+        </div>
+        <button class="next-btn" id="nextBtn">NEXT →</button>
+      </div>
+    </div>
+
+    <div class="camera-box">
+      <div class="win-bar">
+        <div class="win-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="win-title">CAM_01</span>
+      </div>
+      <div class="win-content">
+        <img id="video-feed" src="/video_feed" alt="">
+      </div>
+    </div>
+
+    <div class="terminal-box">
+      <div class="win-bar">
+        <div class="win-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="win-title">SYS_LOG</span>
+      </div>
+      <div class="win-content" id="terminal"></div>
+    </div>
+  </div>
+
+  <h1>Read mE <span class="heart">♥</span></h1>
+
+  <div class="step-indicator">QUERY 01 / 03</div>
+  <div class="keyboard-hint">↑↓ navigate · 1–4 select · Enter confirm</div>
+  <div class="consent-text">By continuing, you agree to the collection of behavioral and biometric data for personalization purposes. Your response patterns, timing, and facial data may be processed. · Privacy Policy · Terms of Use</div>
+  <div class="session-id" id="sessionId"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# model binary (too large, auto-downloaded on first run)
+face_landmarker.task
+
+# claude internal
+.claude/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# macOS
+.DS_Store
